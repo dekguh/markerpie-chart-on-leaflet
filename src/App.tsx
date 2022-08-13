@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // STYLES
 import './App.css'
@@ -11,19 +11,25 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 import ClusterWithSuperCluster from './components/ClusterWithSuperCluster'
 
 function App() {
-  return (
-    <MapContainer
-      style={{ width: '100%', height: '100vh' }}
-      zoom={10}
-      center={[-8.793537, 115.215591]}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+  const [count, setCount] = useState(0)
 
-      <ClusterWithSuperCluster />
-    </MapContainer>
+  return (
+    <>
+      <button onClick={() => setCount(current => current + 1)}>CLICK me {count}</button>
+
+      <MapContainer
+        style={{ width: '100%', height: '100vh' }}
+        zoom={10}
+        center={[-8.793537, 115.215591]}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        <ClusterWithSuperCluster />
+      </MapContainer>
+    </>
   )
 }
 

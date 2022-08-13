@@ -18,7 +18,7 @@ const iconPieChart = (cluster : {[key: string]: any;}, mapContext : Map) => {
   // SET DATA PIE CHART
   const getDataPieChart = () => {
     // GET CLUSTER CHILD
-    const clusterChild : Array<{[key: string]: any;}> = cluster.superclusterRef.current.getLeaves(cluster.detail.id)
+    const clusterChild : Array<{[key: string]: any;}> = cluster.superclusterRef.getLeaves(cluster.detail.id)
 
     return [
       {
