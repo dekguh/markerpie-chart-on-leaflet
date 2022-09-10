@@ -38,15 +38,18 @@ const iconPieChart = (cluster : {[key: string]: any;}, mapContext : Map) => {
     className: 'marker-pie-chart',
     html: ReactDOMServer.renderToString(
       <div style={{
-        width: getSizePieChart() * 2,
-        height: getSizePieChart() * 2
+        width: (getSizePieChart() + 8) * 2,
+        height: (getSizePieChart() + 8) * 2,
+        transform: 'translate(-50%, -50%)'
       }}>
         <PieChart
           data={getDataPieChart()}
           radius={getSizePieChart()}
-          center={[getSizePieChart(), getSizePieChart()]}
-          viewBoxSize={[getSizePieChart() * 2, getSizePieChart() * 2]}
-          lineWidth={40}
+          center={[getSizePieChart() + 8, getSizePieChart() + 8]}
+          viewBoxSize={[(getSizePieChart() + 8) * 2, (getSizePieChart() + 8) * 2]}
+          lineWidth={70}
+          label={({ dataEntry }) => dataEntry.value}
+          labelPosition={100 - 70 / 2}
         />
       </div>
     )
